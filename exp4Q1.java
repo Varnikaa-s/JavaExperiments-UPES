@@ -24,7 +24,7 @@ class Student {
 
         System.out.println();
 
-        Student student2 = new Student("Alice", 20);
+        Student student2 = new Student("Varnika", 20);
         student2.display();
     }
 }
