@@ -19,9 +19,9 @@ class University {
     public static void main(String[] args) {
         University.displayUniversityName();
 
-        University student1 = new University("Alice");
-        University student2 = new University("Bob");
-        University student3 = new University("Charlie");
+        University student1 = new University("Varnika");
+        University student2 = new University("Jassi");
+        University student3 = new University("Chitranshi");
 
         student1.displayStudentDetails();
         student2.displayStudentDetails();
