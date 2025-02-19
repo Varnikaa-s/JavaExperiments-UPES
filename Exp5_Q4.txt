@@ -1,0 +1,59 @@
+// Base class: Worker
+class Worker {
+    protected String name;
+    protected double salaryRate;
+
+    public Worker(String name, double salaryRate) {
+        this.name = name;
+        this.salaryRate = salaryRate;
+    }
+
+    // Polymorphic method
+    public double computePay(int hours) {
+        return 0; // Default implementation, overridden in subclasses
+    }
+
+    public void displayDetails(int hours) {
+        System.out.println("Worker Name: " + name);
+        System.out.println("Weekly Pay: $" + computePay(hours));
+    }
+}
+
+// Subclass: DailyWorker
+class DailyWorker extends Worker {
+    public DailyWorker(String name, double salaryRate) {
+        super(name, salaryRate);
+    }
+
+    @Override
+    public double computePay(int hours) {
+        int daysWorked = hours / 8; // Assuming 8 hours per day
+        return daysWorked * salaryRate;
+    }
+}
+
+// Subclass: SalariedWorker
+class SalariedWorker extends Worker {
+    public SalariedWorker(String name, double salaryRate) {
+        super(name, salaryRate);
+    }
+
+    @Override
+    public double computePay(int hours) {
+        return salaryRate * 40; // Fixed weekly salary for 40 hours
+    }
+}
+
+// Main class to test the implementation
+public class WorkerTest {
+    public static void main(String[] args) {
+        Worker dailyWorker = new DailyWorker("John Doe", 100); // $100 per day
+        Worker salariedWorker = new SalariedWorker("Jane Smith", 20); // $20 per hour (fixed for 40 hours)
+
+        System.out.println("Daily Worker Details:");
+        dailyWorker.displayDetails(48); // Example: 48 hours worked (6 days)
+
+        System.out.println("\nSalaried Worker Details:");
+        salariedWorker.displayDetails(50); // Example: 50 hours worked (fixed at 40 hours)
+    }
+}

@@ -1,0 +1,28 @@
+// Superclass
+class Superclass {
+    private int privateNumber = 100; // Private member
+
+    // Public method to access private member
+    public int getPrivateNumber() {
+        return privateNumber;
+    }
+}
+
+// Derived class
+class DerivedClass extends Superclass {
+    public void display() {
+        // Trying to access private member directly will cause a compilation error
+        // System.out.println("Private Number: " + privateNumber); // Uncommenting this line will cause an error
+
+        // Correct way to access private member via public method of superclass
+        System.out.println("Accessing private member via getter: " + getPrivateNumber());
+    }
+}
+
+// Main class
+public class PrivateMemberDemo {
+    public static void main(String[] args) {
+        DerivedClass obj = new DerivedClass();
+        obj.display();
+    }
+}
