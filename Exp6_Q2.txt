@@ -1,0 +1,41 @@
+package p;
+
+public class A {
+    
+    public void publicMethod() {
+        System.out.println("Public method accessed.");
+    }
+
+    protected void protectedMethod() {
+        System.out.println("Protected method accessed.");
+    }
+
+    void defaultMethod() {
+        System.out.println("Default method accessed.");
+    }
+
+    private void privateMethod() {
+        System.out.println("Private method accessed.");
+    }
+}
+package Q;
+
+import p.A; // Import class A from package p
+
+public class B extends A { // Inherit class A to access protected members
+
+    public static void main(String[] args) {
+        A obj = new A();  // Object of class A
+
+        // Accessing methods from A
+        obj.publicMethod();  // Accessible (public)
+        
+        // obj.protectedMethod(); // Not accessible directly (only through inheritance)
+        // obj.defaultMethod();   // Not accessible (default access, different package)
+        // obj.privateMethod();   // Not accessible (private access)
+        
+        // Accessing protected method via subclass
+        B objB = new B();
+        objB.protectedMethod(); // Accessible due to inheritance
+    }
+}

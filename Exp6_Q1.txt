@@ -1,0 +1,26 @@
+package Balance;
+
+public class Account {
+    private double balance;
+
+    // Constructor to initialize the account balance
+    public Account(double balance) {
+        this.balance = balance;
+    }
+
+    // Method to display the account balance
+    public void Display_Balance() {
+        System.out.println("Account Balance: $" + balance);
+    }
+}
+import Balance.Account;
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating an Account object with an initial balance
+        Account myAccount = new Account(2500.75);
+
+        // Calling the Display_Balance method
+        myAccount.Display_Balance();
+    }
+}

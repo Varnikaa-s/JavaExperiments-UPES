@@ -1,0 +1,20 @@
+// Final class cannot be extended
+public final class Logger {
+    public void logMessage(String message) {
+        System.out.println("Log: " + message);
+    }
+}
+// Attempting to extend a final class (uncommenting will cause an error)
+/*
+public class ExtendedLogger extends Logger {
+    public void logError(String error) {
+        System.out.println("Error: " + error);
+    }
+}
+*/
+public class Main {
+    public static void main(String[] args) {
+        Logger logger = new Logger();
+        logger.logMessage("This is a log message.");
+    }
+}

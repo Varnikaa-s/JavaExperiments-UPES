@@ -1,0 +1,42 @@
+class MathConstants {
+    // Final variable (constant value)
+    public final double PI = 3.14159;
+
+    // Final method (cannot be overridden)
+    public final void displayPI() {
+        System.out.println("Value of PI: " + PI);
+    }
+}
+class Circle extends MathConstants {
+
+    // Method to calculate and display the area of a circle
+    public void calculateArea(double radius) {
+        double area = PI * radius * radius; // Using the final variable
+        System.out.println("Area of the circle: " + area);
+    }
+
+    // Attempting to override final method (uncommenting below will cause an error)
+    /*
+    @Override
+    public void displayPI() {  
+        System.out.println("Trying to override final method!");  
+    }
+    */
+}
+public class Main {
+    public static void main(String[] args) {
+        Circle myCircle = new Circle();
+        
+        // Displaying the final PI value
+        myCircle.displayPI();
+        
+        // Calculating the area of a circle with radius 5
+        myCircle.calculateArea(5.0);
+
+        // Attempting to modify the final variable (uncommenting below will cause an error)
+        /*
+        myCircle.PI = 3.14;  // Error: Cannot assign a value to final variable 'PI'
+        */
+    }
+}
+javac MathConstants.java Circle.java Main.java
